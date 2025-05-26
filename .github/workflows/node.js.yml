@@ -13,3 +13,10 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npm test
+      - name: Save test output
+        run: echo "Tests ran successfully!" > test-results.txt
+      - name: Upload test results
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-results
+          path: test-results.txt
